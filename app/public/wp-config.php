@@ -1,15 +1,25 @@
 <?php
 
-// Load database info and environment parameters
-if ( file_exists( dirname( __FILE__ ) . '/../prod-config.php' ) ) {
-    define( 'WP_LOCAL_DEV', false );
-    include( dirname( __FILE__ ) . '/../prod-config.php' );
-} elseif ( file_exists( dirname( __FILE__ ) . '/../stage-config.php' ) ) {
-    define( 'WP_LOCAL_DEV', false );
-    include( dirname( __FILE__ ) . '/../stage-config.php' );
-} else {
-    define( 'WP_LOCAL_DEV', true );
-    include( dirname( __FILE__ ) . '/../local-config.php' );
+// different environments based on their respective domains names
+// add as many case as needed, then add the corresponding file in ./config
+$files =  glob(dirname( __FILE__ ) . '/config/*.{json}', GLOB_BRACE);;
+foreach($files as $file) {
+    $obj = json_decode(file_get_contents($file));
+    if ($obj->{'domain'} === $_SERVER['SERVER_NAME']) {
+        // redefine all the necessary settings variables (dealing with errors mostly)
+        foreach ($obj->{'variables'} as $variable_name => $variable_value) {
+            ini_set($variable_name, $variable_value);
+        }
+        // defines all the constants according to the configuration file
+        foreach ($obj->{'constants'} as $constant_name => $constant_value) {
+            define($constant_name, $constant_value);
+        }
+        $settings_received = true;
+    }
+    if (!isset($settings_received) or ($settings_received != true)) {
+        echo '<h1>Missing an environment settings file</h1>';
+        return false;
+    }
 }
 
 // Custom content directory

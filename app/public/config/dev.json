@@ -1,0 +1,14 @@
+{
+  "domain": "local-example.test",
+  "variables": {
+    "display_errors": true
+  },
+  "constants": {
+    "DB_NAME": "db_name",
+    "DB_USER": "db_user",
+    "DB_PASSWORD": "db_password",
+    "DB_HOST": "hostname",
+    "WP_DEBUG_DISPLAY": true,
+    "WP_ALLOW_MULTISITE": true
+  }
+}

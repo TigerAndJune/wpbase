@@ -14,6 +14,7 @@ We use [Composer](https://getcomposer.org/) to manage third-party dependencies.
 - Follow the official instructions to [install Composer](https://getcomposer.org/download/).
 - Download the **wpbase** content to your local web server root folder (eg. htdocs or www).
 - Open `/app/composer.json` in an editor and remove the unnecessary plugins.
+- *optional - if the site uses ACF Pro*: create an `.env` file with the key for the plugin as explained on [the acf-pro-installer documentation](https://github.com/PhilippBaschke/acf-pro-installer)
 - In a terminal window, navigate to the `/app` folder in the project (`cd My/Awesome/Project/app/`).
 - Run `composer install` in the terminal. This will download all dependencies needed to run the project locally, including WordPress, a starter theme, and our base plugins.
 

@@ -1,5 +1,9 @@
+# WordPress environnements config files (but not the samples)
+/app/public/config/*.json
+!/app/public/config/sample-dev.json
+!/app/public/config/sample-prod.json
+
 # WordPress app
-/app/public/config/dev.php
 /app/vendor
 /app/public/cms
 /app/public/content/upgrade

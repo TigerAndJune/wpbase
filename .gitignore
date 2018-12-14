@@ -11,6 +11,9 @@
 /app/public/content/plugins/*
 /app/public/content/themes/*
 
+# Env file for composer (contains product keys)
+/app/.env
+
 # Don't ignore our custom themes and plugins
 !/app/public/content/plugins/tnj_*
 !/app/public/content/themes/tnj_*

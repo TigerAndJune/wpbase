@@ -7,27 +7,33 @@ This is our base install for WordPress development, based on Mark Jaquith's [Wor
 - `/app/` will contain all the files needed for WP to work
 - `/static/` will contain static html/css/js integration of the design mockups
 
-## Download common dependencies
+## Download common dependencies with Composer
 
 We use [Composer](https://getcomposer.org/) to manage third-party dependencies.
 
 - Follow the official instructions to [install Composer](https://getcomposer.org/download/).
 - Download the **wpbase** content to your local web server root folder (eg. htdocs or www).
 - Open `/app/composer.json` in an editor and remove the unnecessary plugins.
-- *optional - if the site uses ACF Pro*: create an `.env` file with the key for the plugin as explained on [the acf-pro-installer documentation](https://github.com/PhilippBaschke/acf-pro-installer)
+- *Optional - if the site uses ACF Pro*: create an `.env` file with the key for the plugin as explained on [the acf-pro-installer documentation](https://github.com/PhilippBaschke/acf-pro-installer)
 - In a terminal window, navigate to the `/app` folder in the project (`cd My/Awesome/Project/app/`).
 - Run `composer install` in the terminal. This will download all dependencies needed to run the project locally, including WordPress, a starter theme, and our base plugins.
-
 
 ## Install WordPress
 
 WordPress will be installed in a subfolder `cms`. We use a separate configuration file per environment for database details and other overrides (these config files are ignored by Git).
 
+### Files, first
+
 - Start your MAMP/LAMP server and create a virtual host for the project with the format `projectname.test` or `projectname.demo`. Choose the `/public` folder as the Document Root.
 - Create a database for the project.
 - Duplicate `/app/public/config/sample-dev.json` or `/app/public/config/sample-prod.json` with an appropriate name for the desired environnment. These files are already in our `.gitignore` file so will never be versioned.
 - Fill the new environnment file with your local database info and any other config overrides. 
-- Open the virtual host in the browser to install WordPress. Use `admin` for local username and password.
+
+### The back-end install, then
+
+- Open the virtual host address in the browser to install WordPress. 
+- *For a local installation*, use `admin` as you username and password.
+- Once the WP install is complete, its address will be `projectname.test/cms`. Log-in to the WP back-end, go to `settings`, and change `Site Address (URL)` form `projectname.test/cms` to `projectname.test`
 
 ## Set up a Git repository
 

@@ -24,7 +24,7 @@
   "require": {
     "php": ">=5.4",
     "composer/installers": "1.*",
-    "johnpbloch/wordpress": "4.4.*",
+    "johnpbloch/wordpress": "4.9.*",
     "advanced-custom-fields/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/duplicator": "1.2.52",
     "wpackagist-plugin/custom-post-type-ui": "1.6.1",

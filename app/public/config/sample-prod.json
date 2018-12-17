@@ -1,0 +1,13 @@
+{
+  "domain": "example.com",
+  "variables": {
+    "display_errors": false
+  },
+  "constants": {
+    "DB_NAME": "db_name",
+    "DB_USER": "db_user",
+    "DB_PASSWORD": "db_password",
+    "DB_HOST": "hostname",
+    "WP_DEBUG_DISPLAY": true
+  }
+}

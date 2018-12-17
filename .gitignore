@@ -1,23 +1,22 @@
+# WordPress environnements config files (but not the samples)
+/app/public/config/*.json
+!/app/public/config/sample-dev.json
+!/app/public/config/sample-prod.json
+
 # WordPress app
-/app/local-config.php
-/app/stage-config.php
-/app/prod-config.php
 /app/vendor
 /app/public/cms
 /app/public/content/upgrade
 /app/public/content/languages/*
 /app/public/content/plugins/*
 /app/public/content/themes/*
+
+# Env file for composer (contains product keys)
+/app/.env
+
 # Don't ignore our custom themes and plugins
 !/app/public/content/plugins/tnj_*
 !/app/public/content/themes/tnj_*
-
-# Static templates
-/static/node_modules
-/static/*.html
-/static/*.css
-/static/*.js
-/static/*.map
 
 # Other
 .DS_Store
